@@ -21,7 +21,7 @@
   //   }
   // }
 
-?> 
+?>
 
 <?php
 include('header.php');
@@ -33,7 +33,7 @@ include('header.php');
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">BLog Listings</h3>
+                <h3 class="card-title">Category Listings</h3>
                 <div class="float-right d-none d-sm-inline">
                   <a href="logout.php" type="button" class="btn btn-dark">Logout</a>
                 </div>
@@ -44,7 +44,7 @@ include('header.php');
                 }else {
                   $pageno = 1;
                 }
-                $numOfrecs = 2;
+                $numOfrecs = 5;
                 $offset = ($pageno - 1) * $numOfrecs;
 
                 if (empty($_POST['search']) && empty($_COOKIE['search'])) {
@@ -85,7 +85,7 @@ include('header.php');
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Category Name</th>
+                      <th> Name</th>
                       <th>Description</th>
                       <th style="width: 40px">Actions</th>
                     </tr>
@@ -135,10 +135,10 @@ include('header.php');
                     <li class="page-item"><a class="page-link" href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
                   </ul>
                 </nav>
-                
+
               </div>
               <!-- /.card-body -->
-              
+
             </div>
 
             <!-- /.card -->

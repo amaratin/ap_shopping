@@ -1,7 +1,8 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!hash_equals($_SESSION['_token'], $_POST['_token'])){
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!hash_equals($_SESSION['_token'], $_POST['_token'])) {
       echo 'Invalid CSRF token';
       die();
     }else{
@@ -19,7 +20,7 @@ if (empty($_SESSION['_token'])) {
 	}
 }
 
-function escape($html) {
-	return htmlspecialchars($html, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
-}
 
+function escape($html) {
+    return htmlspecialchars($html, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
+}

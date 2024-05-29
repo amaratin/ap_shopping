@@ -15,8 +15,8 @@ if (!empty($_POST['search'])) {
   setcookie('search',$_POST['search'], time() + (86400 * 30), "/");
 }else{
   if (empty($_GET['pageno'])) {
-    unset($_COOKIE['search']); 
-    setcookie('search', null, -1, '/'); 
+    unset($_COOKIE['search']);
+    setcookie('search', null, -1, '/');
   }
 }
 
@@ -32,6 +32,9 @@ if (!empty($_POST['search'])) {
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Product Listings</h3>
+                <div class="float-right d-none d-sm-inline">
+                  <a href="logout.php" type="button" class="btn btn-dark">Logout</a>
+                </div>
               </div>
               <?php
                 if (!empty($_GET['pageno'])) {

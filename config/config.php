@@ -10,7 +10,6 @@ $options = array(
 );
 
 $pdo = new PDO(
-    'mysql:host='.MYSQL_HOST.';dbname='.MYSQL_DATABASE,MYSQL_USER,MYSQL_PASSWORD,$options
-)
-
-?>
+  'mysql:host='.MYSQL_HOST.';dbname='.MYSQL_DATABASE,MYSQL_USER,MYSQL_PASSWORD,$options
+  )
+ ?>

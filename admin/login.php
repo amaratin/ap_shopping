@@ -19,7 +19,7 @@ if ($_POST) {
       $_SESSION['username'] = $user['name'];
       $_SESSION['logged_in'] = time();
       $_SESSION['role'] = 1;
-        
+
       header('Location: index.php');
     }
   }

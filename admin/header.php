@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>NLO Shopping</title>
+  <title>AP Shopping</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -40,10 +40,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       $page = end($link_array);
     ?>
     <!-- Search Field Hiding Code -->
-    <?php if($page == 'user_list.php' || $page == 'category.php' || $page == 'index.php') { ?> 
-      
-      <form class="form-inline ml-3" method="post" 
-      <?php if($page == 'index.php'): ?>
+    <?php if($page == 'user_list.php' || $page == 'category.php' || $page == 'index.php') { ?>
+
+      <form class="form-inline ml-3" method="post"
+      <?php if($page == 'product.php'): ?>
       action="index.php"
       <?php elseif($page == 'category.php'): ?>
       action="category.php"
@@ -52,14 +52,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <?php endif; ?>
       >
     <input name="_token" type="hidden" value="<?php echo $_SESSION['_token']; ?>">
-    
+
       <div class="input-group input-group-sm">
         <input name="search" class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
           </button>
-          
+
         </div>
       </div>
     </form>
@@ -82,7 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div> 
+        </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $_SESSION['username']?></a>
         </div>
