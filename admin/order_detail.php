@@ -21,7 +21,7 @@
   //   }
   // }
 
-?> 
+?>
 
 <?php
 include('header.php');
@@ -48,13 +48,13 @@ include('header.php');
                 $numOfrecs = 2;
                 $offset = ($pageno - 1) * $numOfrecs;
 
-                $pdostmt = $pdo -> prepare("SELECT * FROM sale_order_detail WHERE sale_order_id=".$_GET['id']);
+                $pdostmt = $pdo -> prepare("SELECT * FROM sales_order_details WHERE sale_order_id=".$_GET['id']);
                 $pdostmt-> execute();
                 $rawResult = $pdostmt->fetchAll();
 
                 $total_pages = ceil(count($rawResult)/$numOfrecs);
 
-                $pdostmt = $pdo -> prepare("SELECT * FROM sale_order_detail WHERE sale_order_id=".$_GET['id']." LIMIT $offset,$numOfrecs");
+                $pdostmt = $pdo -> prepare("SELECT * FROM sales_order_details WHERE sale_order_id=".$_GET['id']." LIMIT $offset,$numOfrecs");
                 $pdostmt-> execute();
                 $result = $pdostmt->fetchAll();
 
@@ -62,7 +62,7 @@ include('header.php');
 
               <!-- /.card-header -->
               <div class="card-body">
-              
+
               <a href="order_list.php" class="btn btn-default">Back</a><br>
                 <br>
                 <table class="table table-bordered">
@@ -80,10 +80,10 @@ include('header.php');
                       if ($result) {
                         foreach ($result as $value) {
                      ?>
-                     <?php 
+                     <?php
                       $productStmt = $pdo -> prepare("SELECT * FROM products WHERE id=".$value['product_id']);
                       $productStmt-> execute();
-                      $productResult = $productStmt->fetchAll(); 
+                      $productResult = $productStmt->fetchAll();
                     ?>
                      <tr>
                        <td><?php echo $i; ?></td>
@@ -113,10 +113,10 @@ include('header.php');
                     <li class="page-item"><a class="page-link" href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
                   </ul>
                 </nav>
-                
+
               </div>
               <!-- /.card-body -->
-              
+
             </div>
 
             <!-- /.card -->

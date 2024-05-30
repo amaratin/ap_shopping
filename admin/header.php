@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -40,7 +41,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       $page = end($link_array);
     ?>
     <!-- Search Field Hiding Code -->
-    <?php if($page == 'user_list.php' || $page == 'category.php' || $page == 'index.php') { ?>
+
+    <?php if($page != 'user_list.php' || $page == 'category.php' || $page == 'index.php') { ?>
 
       <form class="form-inline ml-3" method="post"
       <?php if($page == 'product.php'): ?>
@@ -73,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Blog Pannel</span>
+      <span class="brand-text font-weight-light">AP shopping</span>
     </a>
 
     <!-- Sidebar -->

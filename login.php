@@ -1,11 +1,12 @@
 <?php
     session_start();
-    require('config/config.php');
-    require('config/common.php');
+    require 'config/config.php';
+    require 'config/common.php';
+
     if($_POST) {
-        $email = $_POST['email'];
+    $email = $_POST['email'];
 		$password = $_POST['password'];
-		
+
 		$stmt = $pdo->prepare("SELECT * FROM users WHERE email=:email");
 		$stmt -> execute(
 			array(':email'=>$email)
@@ -16,7 +17,7 @@
 				$_SESSION['user_id']=$user['id'];
 				$_SESSION['username']=$user['name'];
 				$_SESSION['logged_in']=time();
-		
+
 				header('Location: index.php');
 			  }
 		}
@@ -64,7 +65,7 @@
 				<div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand logo_h" href="index.html">
-                        <h4>NLO Shopping</h4>
+                        <h4>AP Shopping</h4>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
@@ -135,7 +136,7 @@
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							</div>
-							
+
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
 							</div>
@@ -159,8 +160,7 @@
                 Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a> 
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </script> All rights reserved
             </p>
         </div>
     </div>

@@ -21,7 +21,7 @@
   //   }
   // }
 
-?> 
+?>
 
 <?php
 include('header.php');
@@ -82,10 +82,10 @@ include('header.php');
                       if ($result) {
                         foreach ($result as $value) {
                      ?>
-                     <?php 
+                     <?php
                       $userStmt = $pdo -> prepare("SELECT * FROM users WHERE id=".$value['user_id']);
                       $userStmt-> execute();
-                      $userResult = $userStmt->fetchAll(); 
+                      $userResult = $userStmt->fetchAll();
                     ?>
                      <tr>
                        <td><?php echo $i; ?></td>
@@ -122,10 +122,10 @@ include('header.php');
                     <li class="page-item"><a class="page-link" href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
                   </ul>
                 </nav>
-                
+
               </div>
               <!-- /.card-body -->
-              
+
             </div>
 
             <!-- /.card -->

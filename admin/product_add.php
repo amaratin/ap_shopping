@@ -7,10 +7,10 @@ require '../config/common.php';
 
 if (empty($_SESSION['user_id']) && empty($_SESSION['logged_in'])) {
   header('Location: login.php');
-}    
+}
 
 if ($_POST) {
-    if(empty($_POST['name']) || empty($_POST['description']) || empty($_POST['category']) 
+    if(empty($_POST['name']) || empty($_POST['description']) || empty($_POST['category'])
     || empty($_POST['quantity']) || empty($_POST['price']) || empty($_FILES['image'])) {
       if(empty($_POST['name'])) {
         $nameError = 'Category name cannot be null';
@@ -47,6 +47,7 @@ if ($_POST) {
             $price = $_POST['price'];
             $qty = $_POST['quantity'];
             $image = $_FILES['image']['name'];
+
             move_uploaded_file($_FILES['image']['tmp_name'], $file);
 
             $stmt = $pdo->prepare("INSERT INTO products (name, description, category_id, price, quantity, image)
@@ -85,17 +86,17 @@ if ($_POST) {
                 </div>
 
                 <div class="form-group">
-<?php
-    $pdostmt = $pdo -> prepare("SELECT * FROM categories");
-    $pdostmt-> execute();
-    $catResult = $pdostmt->fetchAll();
-?>
+                      <?php
+                          $pdostmt = $pdo -> prepare("SELECT * FROM categories");
+                          $pdostmt-> execute();
+                          $catResult = $pdostmt->fetchAll();
+                      ?>
                     <label for="">Category</label><p style="color: red;"><?php echo empty($catError)? '': '*'.$catError ; ?></p>
                     <select class="form-control" name="category" id="">
                         <option value="">SELECT CATEGORY</option>
-<?php foreach($catResult as $value) { ?>
-                        <option value="<?php echo $value['id'] ?>"><?php echo $value['name'] ?></option>
-<?php } ?>
+                        <?php foreach($catResult as $value) { ?>
+                            <option value="<?php echo $value['id'] ?>"><?php echo $value['name'] ?></option>
+                        <?php } ?>
                 </select>
                 </div>
 
@@ -130,4 +131,3 @@ if ($_POST) {
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content -->
-

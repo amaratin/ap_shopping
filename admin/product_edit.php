@@ -7,10 +7,10 @@ require '../config/common.php';
 
 if (empty($_SESSION['user_id']) && empty($_SESSION['logged_in'])) {
   header('Location: login.php');
-}    
+}
 
 if ($_POST) {
-    if(empty($_POST['name']) || empty($_POST['description']) || empty($_POST['category']) 
+    if(empty($_POST['name']) || empty($_POST['description']) || empty($_POST['category'])
     || empty($_POST['quantity']) || empty($_POST['price']) || empty($_FILES['image'])) {
       if(empty($_POST['name'])) {
         $nameError = 'Category name cannot be null';
@@ -48,11 +48,12 @@ if ($_POST) {
             $price = $_POST['price'];
             $qty = $_POST['quantity'];
             $image = $_FILES['image']['name'];
+
             move_uploaded_file($_FILES['image']['tmp_name'], $file);
 
-            $stmt = $pdo->prepare("UPDATE products SET name=:name, description=:description, category_id=:category, price=:price, quantity=:quantity, image=:image WHERE id=".$_GET['id']);
+            $stmt = $pdo->prepare("UPDATE products SET name=:name, description=:description, category_id=:category, price=:price, quantity=:quantity, image=:image WHERE id=:id");
             $result = $stmt->execute(
-                array(':name'=>$name, ':description'=>$desc, ':category'=>$category, ':price'=>$price, ':quantity'=>$qty, ':image'=>$image)
+                array(':name'=>$name, ':description'=>$desc, ':category'=>$category, ':price'=>$price, ':quantity'=>$qty, ':image'=>$image, ':id'=>$id)
             );
 
             if($result) {
@@ -65,17 +66,18 @@ if ($_POST) {
             $category = $_POST['category'];
             $price = $_POST['price'];
             $qty = $_POST['quantity'];
+            $id = $_POST['id'];
 
-            $stmt = $pdo->prepare("UPDATE products SET name=:name, description=:description, category_id=:category, price=:price, quantity=:quantity WHERE id=".$_GET['id']);
+            $stmt = $pdo->prepare("UPDATE products SET name=:name, description=:description, category_id=:category, price=:price, quantity=:quantity WHERE id=:id");
             $result = $stmt->execute(
-                array(':name'=>$name, ':description'=>$desc, ':category'=>$category, ':price'=>$price, ':quantity'=>$qty)
+                array(':name'=>$name, ':description'=>$desc, ':category'=>$category, ':price'=>$price, ':quantity'=>$qty, ':id'=>$id)
             );
 
             if($result) {
                 echo "<script>alert('Product is Updated');window.location.href='index.php';</script>";
             }
         }
-        
+
     }
 }
 
@@ -141,7 +143,7 @@ $result = $stmt->fetchAll();
                 </div>
 
                 <div class="form-group">
-                  <input type="submit" class="btn btn-outline-success" name="" value="Create">
+                  <input type="submit" class="btn btn-outline-success" name="" value="Update">
                   <a type="button" class="btn btn-outline-warning" href="index.php">Back</a>
                 </div>
 
@@ -156,4 +158,3 @@ $result = $stmt->fetchAll();
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content -->
-

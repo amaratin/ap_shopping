@@ -3,6 +3,7 @@
 
     require('config/config.php');
     require('config/common.php');
+
     if($_POST) {
        if(empty($_POST['name']) || empty($_POST['email']) || empty($_POST['phone']) || empty($_POST['address'] ) || empty($_POST['password']) || strlen($_POST['password']) < 4) {
             if(empty($_POST['name'])) {
@@ -41,7 +42,7 @@
                     array(':name'=>$name, ':email'=>$email, ':password'=>$password, ':phone'=>$phone, ':address'=>$address)
                 );
                 if($result) {
-                    echo "<script>alert('Registration Success! You can now LogIn');window.location.href='login.php';</script>";
+                    echo "<script>alert('Registration Success! You can now Login.');window.location.href='login.php';</script>";
                 }
             }
        }
@@ -88,7 +89,7 @@
 				<div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand logo_h" href="index.html">
-                        <h4>NLO Shopping</h4>
+                        <h4>AP Shopping</h4>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="icon-bar"></span>
@@ -145,26 +146,26 @@
 					<div class="login_form_inner">
 						<h3>Register To Use Our Shopping Site</h3>
 						<form class="row login_form" action="" method="post" id="contactForm" novalidate="novalidate">
-                        <input name="_token" type="hidden" value="<?php echo $_SESSION['_token']; ?>">
-                            <div class="col-md-12 form-group">
+              <input name="_token" type="hidden" value="<?php echo $_SESSION['_token']; ?>">
+              <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Name" style="<?php echo empty($nameError)? '':'border: solid 1px red;' ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="email" placeholder="Email" style="<?php echo empty($emailError)? '':'border: solid 1px red;' ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
-                            </div>
-                            <div class="col-md-12 form-group">
+              </div>
+              <div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="phone" placeholder="Phone" style="<?php echo empty($phoneError)? '':'border: solid 1px red;' ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="address" placeholder="Address" style="<?php echo empty($addressError)? '':'border: solid 1px red;' ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
 							</div>
 							<div class="col-md-12 form-group">
-                                <input type="password" class="form-control" id="name" name="password" placeholder="Password" style="<?php echo empty($passwordError)? '':'border: solid 1px red;' ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-                                <p style="color:red; text-align:left;"><?php echo empty($passwordError)? '':  $passwordError; ?></p>
+              <input type="password" class="form-control" id="name" name="password" placeholder="Password" style="<?php echo empty($passwordError)? '':'border: solid 1px red;' ?>" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <p style="color:red; text-align:left;"><?php echo empty($passwordError)? '':  $passwordError; ?></p>
 							</div>
 							<div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="primary-btn">Register</button>
-                                <a href="login.php" class="primary-btn" style="color:white">Go To Login</a>
+              <button type="submit" value="submit" class="primary-btn">Register</button>
+              <a href="login.php" class="primary-btn" style="color:white">Go To Login</a>
 							</div>
 						</form>
 					</div>
@@ -183,7 +184,7 @@
                 Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a> 
+                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>
